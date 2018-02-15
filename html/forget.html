@@ -1,0 +1,39 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/style1.css"/>
+	<script>
+	function validate()
+	{
+	var pattern=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	var emailID=document.forget.eid.value;
+	if(pattern.test(emailID)==false)
+	{
+		alert("INVALID EMAIL ID");
+		document.forget.eid.focus();
+		return false;
+	}
+	else
+		return true;
+	}
+	</script>
+</head>
+<title>FORGET PASSWORD</title>
+<body style="background-image:url('use2.jpg')">
+<div class="headd">
+  <h1>FORGOTTEN YOUR PASSWORD???</h1>
+</div>
+<!-- Form Module-->
+<div class="formDesign">
+  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+    <!--<div class="tooltip">Click Me</div>-->
+  </div>
+  <div class="form">
+    <h2>Enter Email ID </h2>
+	<h3>We will send you a link to reset your password</h3>
+    <form name="forget" action="resetPassword.html" method="post" onsubmit="return validate()">
+      <input type="text" placeholder="EMAIL ID" name="eid" required/>
+      <input id="button" type="submit" value="SUBMIT"/>  
+    </form>
+  </div>
+</body>
+</html>

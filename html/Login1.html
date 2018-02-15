@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>CRBS LOGIN</title>
+      <link rel="stylesheet" href="css/style.css">
+  <script>
+	function validate()
+	{
+		var len=document.forms["login"]["password"].value.length;
+		if(len<8)
+		{
+			alert('PASSWORD MUST BE GREATER THAN 8 CHARACTERS');
+			document.forms["login"]["password"].focus();
+			return false;
+		}
+		else
+		return true;
+	}
+	</script>
+</head>
+<body style="background-image:url('use2.jpg')">
+<div class="pen-title">
+  <h1>CRBS LOGIN FORM</h1>
+</div>
+<!-- Form Module-->
+<div class="module form-module">
+  <div class="toggle">
+    <!--<div class="tooltip">Click Me</div>-->
+  </div>
+  <div class="form">
+    <h2>Login to your account</h2>
+    <form name="login" action="user.html" method="post" onsubmit="return validate()">
+      <input type="text" placeholder="USERNAME" name="username" required/>
+      <input type="password" placeholder="PASSWORD" name="password" required/>
+      <input id="button" type="submit" value="LOGIN"/>  
+    </form>
+  </div>
+  <div class="cta"><a href="forget.html">Forgot your password?</a></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+	<link rel="spreadsheet" href="B:\CrbsSite\css\style1.css"/>
+	<style>
+	.formDesign {					
+     position: relative;
+     background: #ffffff;
+     max-width: 420px;
+     width: 200%;
+     border: 3px solid #000000;
+     margin: 0 auto;
+    }
+     .formDesign input {				/*login2,register2,forget*/
+      outline: none;
+      display: block;
+  width: 100%;
+  border: 1px solid #050505;
+  margin: 0 0 20px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-wieght: 400;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+	
+	</style>
+</head>
+<body>
+	<div class="formDesign">
+		<div class="form">
+		<form name="cancel" action="admin.html" method="post" onsubmit="return validate()">
+		<input type="text" name="govtid" placeholder="GOVTID" required/>
+		<input type="text" name="rid" placeholder="ROOMID" required/>	
+		<input type="date" name="date" placeholder="DD-MM-YYYY" required/>
+		<input type="time" name="time" placeholder="HH:MM" required/>
+		<input type="submit" value="CANCEL" id="button"/>
+		</form>
+		</div>
+	</div>
+</body>
+</html>

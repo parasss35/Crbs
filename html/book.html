@@ -1,0 +1,82 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/style1.css"/>
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/> 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
+	<script> $(document).ready(function() {
+	$('#datepicker').datepicker({
+	minDate:3,beforeShowDay: noSunday
+	});
+	function noSunday(date){
+	var day = date.getDay();
+	return [(day>0), ''];
+	};
+	});
+	</script>
+	
+	<script>
+		function validate()
+		{
+			var seats=document.forms["book"]["noofseats"].value;
+			var reg=document.forms["book"]["region"].value;
+			var minis=document.forms["book"]["region"].value;
+			if(seats=="--SEATS--")
+			{
+				alert("SELECT NO. OF SEATS");
+				document.book.meetingtitle.focus();
+				return false;
+			}
+			if(reg=="--REGION--")
+			{
+				alert("SELECT REGION");
+				document.book.meaningtitle.focus();
+				return false;
+			}
+			if(minis=="--MINISTRY--")
+			{
+				alert("SELECT MINISTRY");
+				document.book.meetingtitle.focus();
+				return false;
+			}
+			else
+				return true;
+		}
+	</script>
+</head>
+<div style="background-image:url('use2.jpg')">
+<body>
+	<div class="headd">
+		<h1>CRBS BOOKING</h1>
+	</div>
+	<div class="formDesign">
+		<div class="form">
+	<form name="book" method="post" action="book1.html" onsubmit="return validate()">
+		<select name="dept" required>
+			<option>--MINISTRY--</option> <option>Airport Authority of India</option> <option>AICTE</option><option>AYUSH</option>
+			<option>Department of atomic energy</option><option>Department of Biotechnology</option><option>Department of Defense Production</option>
+			<option>Department of Empowernment of Disability</option><option>Department of Food Processing</option><option>Department of Science and Technology</option>
+			<option>Department of Rural Development</option><option>DONER</option><option>DiPP</option>
+			<option>Indian Council Medical Research</option><option>ISRO</option><option>MEITY</option>
+			<option>Ministry of Chemicals</option><option>Ministry of Earth Sciences</option><option>Ministry of Environment,Forests and Climate Change </option>
+			<option>Ministry of External Affairs</option><option>Ministry of HRD</option><option>Ministry of Railways</option>
+			<option>Ministry of Road Transport and Highways</option><option>Ministry of Steel</option><option>Ministry of Tourism</option>
+			<option>NCPCR</option><option>Skill Development</option>  <option>Student's Voice</option><option>UGC</option> 
+		</select>
+		<select name="region" required>
+			<option>--REGION--</option><option>NORTH</option><option>SOUTH</option><option>EAST</option><option>WEST</option>
+			<option>NORTH WEST</option><option>SOUTH WEST</option><option> NORTH EAST</option><option> SOUTH EAST</option>
+		</select>
+		<input type="text" name="meetingtitle" placeholder="MEETING TITLE" required/>
+		<select name="noofseats" required>
+			<option>--SEATS--</option><option>Upto 50</option><option> Upto 100</option><option>Upto 150</option>
+			<option>Upto 200</option>
+		</select>
+        <input id="datepicker" placeholder="DATE" required/> 
+        <input type="submit" value="PROCEED" id="button"/>
+	    </form>
+	</div>
+	</div>
+</body>
+</div>
+</html>

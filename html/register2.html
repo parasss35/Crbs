@@ -1,0 +1,102 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CRBS REGISTER</title>
+    <link rel="stylesheet" href="css/style1.css"/>
+	<link rel="stylesheet" href="layout/css/layout.css"/>
+	<script>
+		function validate()
+		{
+			var len=document.forms["register"]["password"].value.length;
+			var len1=document.forms["register"]["contactNumber"].value.length;
+			var pass=document.forms["register"]["password"].value;
+			var cpass=document.forms["register"]["confirmPassword"].value;
+			var stateValue=document.forms["register"]["state"].value;
+			var deptValue=document.forms["register"]["dept"].value;
+			var emailID=document.register.uid.value;
+			var pattern=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+			if(pass!=cpass)
+			{
+				alert("Password doesn't match");
+				document.forms["register"]["confirmPassword"].focus();
+				return false;
+			}
+			else if(len<8)
+			{
+				alert('PASSWORD MUST BE GREATER THAN 8 CHARACTERS');
+				document.forms["register"]["password"].focus();
+				return false;
+			}
+			else if(stateValue=="--REGION--")
+			{
+				alert('CHOOSE A STATE');
+				document.forms["register"]["password"].focus();
+				return false;
+			}
+			else if(deptValue=="--MINISTRY--")
+			{
+				alert('CHOOSE A DEPARTMENT');
+				document.forms["register"]["password"].focus();
+				return false;
+			}
+			else if(len1<10 && len1>10)
+			{
+				alert('ENTER VALID CONTACT NUMBER');
+				document.forms["register"]["contactNumber"].focus();
+				return false;
+			}
+			if(pattern.test(emailID)==false)
+			{
+				alert("INVALID EMAIL ID");
+				document.forget.eid.focus();
+				return false;
+			}
+			else 
+				return true;
+		}
+	</script>
+	</head>
+<div style="background-image:url('use2.jpg')">
+<body id="top">
+	<div class="wrapper row0">
+		<div id="topbar" class="hoc clear">
+			<marquee direction="right" ></marquee>
+		</div>
+	</div>	
+			<div class="headd">
+				<h1>CRBS REGISTRATION</h1>
+			<!--</div>-->
+		<div class="formDesign">
+				<div class="form">
+				<h2>Create an account</h2>
+    <form name="register" action="adminhome.html" method="post" onsubmit="return validate()">
+	<input type="text" placeholder="GOVT. ID" name="govtID" required/>
+    <input type="text" placeholder="FULLNAME" name="fullname" required/>
+    <input type="text"  placeholder="User ID" name="uid" required/>
+	<input type="password" placeholder="password" name="password" required/>
+	<input type="password" placeholder="Confirm Password" name="confirmPassword" required/>
+	
+	<select name="region" required>
+	<option>--REGION--</option> <option>NORTH</option> <option>SOUTH</option>
+	<option>EAST</option> <option>WEST</option> <option>NORTH EAST</option> <option>NORTH WEST</option>
+	<option>SOUTH EAST</option> <option>SOUTH WEST</option> 
+	</select>
+	
+	<select name="dept" required>
+	<option>--MINISTRY--</option> <option>Airport Authority of India</option> <option>AICTE</option><option>AYUSH</option>
+	<option>Department of atomic energy</option><option>Department of Biotechnology</option><option>Department of Defense Production</option>
+	<option>Department of Empowernment of Disability</option><option>Department of Food Processing</option><option>Department of Science and Technology</option>
+	<option>Department of Rural Development</option><option>DONER</option><option>DiPP</option>
+	<option>Indian Council Medical Research</option><option>ISRO</option><option>MEITY</option>
+	<option>Ministry of Chemicals</option><option>Ministry of Earth Sciences</option><option>Ministry of Environment,Forests and Climate Change </option>
+	<option>Ministry of External Affairs</option><option>Ministry of HRD</option><option>Ministry of Railways</option>
+	<option>Ministry of Road Transport and Highways</option><option>Ministry of Steel</option><option>Ministry of Tourism</option>
+	<option>NCPCR</option><option>Skill Development</option>  <option>Student's Voice</option><option>UGC</option> 
+	</select>
+    <input type="tel" placeholder="Phone Number" name="contactNumber" required/>
+    <input id="button" type="submit" value="REGISTER" />
+    </form>
+  </div>
+</body>
+</div>
+</html>
